@@ -1,0 +1,60 @@
+import java.util.Scanner;
+class Book{
+	int bookid;
+	String title,author;
+	boolean isIssued;
+	Scanner sc=new Scanner(System.in);
+	public void getBookDetails()
+	{
+		System.out.println("enter bookid");
+		this.bookid=sc.nextInt();
+				System.out.println("enter book title");
+		this.title=sc.nextLine();
+				System.out.println("enter book author name");
+		this.author=sc.nextLine();
+		
+	}
+	 public void issueBook() {
+        if (isIssued==false) {
+            isIssued = true;
+            System.out.println("Book issued successfully!");
+        } else {
+            System.out.println("Book is already issued.");
+        }
+    }
+
+	    public void returnBook() {
+        if (isIssued==true) {
+            isIssued = false;
+            System.out.println("Book returned successfully!");
+        } else {
+            System.out.println("Book was not issued.");
+        }
+    }
+
+	
+	public void displayBookDetails()
+	{
+		//System.out.println("Bookid="+bookid+"Book Title="+title+"Author name="+author);
+		System.out.println("Book ID: " + bookid + ", Title: " + title +
+                ", Author: " + author + ", Status: " + (isIssued ? "Issued" : "Available"));
+	}
+}
+	class LibraryManagement
+	{
+		public static void main(String args[])
+		{
+		
+        Book[] books = new Book[100];
+		for(int i=0;i<books.length;i++)
+		{
+		books[i]=new Book();
+		books[i].getBookDetails();
+		books[i].issueBook();
+		books[i].returnBook();
+		books[i].displayBookDetails();
+        }
+	}
+	}
+
+			
